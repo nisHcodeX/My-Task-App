@@ -79,10 +79,11 @@ function App() {
           body : JSON.stringify(updTask)
       })
        const data = await res.json()
+
       setTasks( 
         tasks.map((task)=> task.id === id ? 
         {...task, reminder:
-           !task.reminder}
+           data.reminder}
         : task
       )
     )
