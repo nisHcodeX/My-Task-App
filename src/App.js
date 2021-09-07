@@ -2,6 +2,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import About from './components/About'
 import Tasks from './components/Tasks'
+import ContactUs from './components/ContactUs'
 import AddTask from './components/AddTask'
 import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
@@ -44,27 +45,15 @@ function App() {
     })
     
     const data = await res.json()
-    setTasks([...tasks, data])
-
-      // const id = Math.floor(Math.random()*10000)+1
-      // const newTask = {id,...task}
-      // setTasks(
-      //   [...tasks,newTask]
-      // )
-
-   }
+    setTasks([...tasks, data]) }
 // Delete Event 
     const deleteTask =async (id) =>{
      await fetch(`http://localhost:5000/tasks/${id}`,{
       method : 'DELETE'
      })
-
         setTasks(
-          tasks.filter(tasks =>(
-            tasks.id !== id
-          ))
-        )
-    }
+          tasks.filter(tasks =>tasks.id !== id)
+        )}
 // Toggle Event
     const toggleTask =async (id) =>{
         const taskToToggle = await fetchTask(id)
@@ -110,6 +99,7 @@ function App() {
         )} />
         <Route path='/About' component={About}/>
         <Footer className='footer'/>
+        <ContactUs/>
     </div>
     </Router>
   )
