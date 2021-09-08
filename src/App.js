@@ -2,13 +2,16 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import About from './components/About'
 import Tasks from './components/Tasks'
-import ContactUs from './components/ContactUs'
 import AddTask from './components/AddTask'
+import ContactUs from './components/ContactUs'
 import {useState, useEffect} from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, useLocation} from 'react-router-dom'
+
 
 
 function App() {
+//
+
 // toggle Button
  const [showAddTask,setShowAddTask] = useState (false)
 
@@ -78,6 +81,7 @@ function App() {
     )
     }
   return (
+    
     <Router>
     <div className="container">
     <Header 
@@ -97,9 +101,10 @@ function App() {
         ('No Task to Preview')}
             </>
         )} />
+        <ContactUs/>
         <Route path='/About' component={About}/>
         <Footer className='footer'/>
-        <ContactUs/>
+        
     </div>
     </Router>
   )
