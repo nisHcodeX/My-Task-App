@@ -130,7 +130,11 @@ footer {
   display: flex;
 }
 
-.contactus-form-link{
+.contactus-form-link {
   text-decoration: none;
   color: white;
 }
+.ContactUs{
+  margin : 20px 0px 20px 0px;
+}
+
