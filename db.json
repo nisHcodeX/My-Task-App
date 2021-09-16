@@ -4,13 +4,87 @@
       "id": 1,
       "text": "Doctors Appointment",
       "day": "Feb 5th at 2:30pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,
       "text": "Meeting at School",
       "day": "Feb 6th at 1:30pm",
-      "reminder": false
+      "reminder": true
+    }
+  ],
+  "contact": [
+    {
+      "text": "bdf",
+      "email": "sd",
+      "msg": "vsdv",
+      "id": 1
+    },
+    {
+      "text": " c",
+      "email": " xc",
+      "msg": " cx",
+      "id": 2
+    },
+    {
+      "text": " c",
+      "email": " v",
+      "msg": "c x",
+      "id": 3
+    },
+    {
+      "text": "v",
+      "email": " c",
+      "msg": "x",
+      "id": 4
+    },
+    {
+      "text": "  cxvxc",
+      "email": "c x",
+      "msg": " zx",
+      "id": 5
+    },
+    {
+      "text": "",
+      "email": "",
+      "msg": "",
+      "id": 6
+    },
+    {
+      "text": "f",
+      "email": "",
+      "msg": "",
+      "id": 7
+    },
+    {
+      "text": "4",
+      "email": "g",
+      "msg": "",
+      "id": 8
+    },
+    {
+      "text": "4",
+      "email": "fd",
+      "msg": "v",
+      "id": 9
+    },
+    {
+      "text": "ds",
+      "email": "vdv",
+      "msg": "vvd",
+      "id": 10
+    },
+    {
+      "text": "sepa",
+      "email": "kane",
+      "msg": "mcn",
+      "id": 11
+    },
+    {
+      "text": "dsvd",
+      "email": "vsdv",
+      "msg": "vdsv",
+      "id": 12
     }
   ]
 }

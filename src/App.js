@@ -5,17 +5,20 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import ContactUs from './components/ContactUs'
 import ContactUsForm from './components/ContactUsForm'
+
+
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Button from './components/Button';
 
 
 
 function App() {
-  //
-
   // toggle Button
   const [showAddTask, setShowAddTask] = useState(false)
+
   const [tasks, setTasks] = useState([])
+  // const [contact,setcontact] =useState([])
 
   useEffect(() => {
     const getTasks = async () => {
@@ -26,32 +29,41 @@ function App() {
   }, [])
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch(`http://localhost:5000/tasks/`)
-    const data = await res.json()
+      const res = await fetch(`http://localhost:5000/tasks/`)
+      const data = await res.json()
     return data
   }
   // Fetch Task
 
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`)
-    console.log(res, 'this is res')
-    const data = await res.json()
-
+      const res = await fetch(`http://localhost:5000/tasks/${id}`)
+      const data = await res.json()
     return data
   }
   // Add Task
   const addTask = async (task) => {
+    console.log('this is task')
     const res = await fetch('http://localhost:5000/tasks', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
-      },
+                 'Content-type': 'application/json'
+               },
       body: JSON.stringify(task)
     })
-
     const data = await res.json()
 
     setTasks([...tasks, data])
+  }
+  // Add Contact
+  const contactUsForm = async (contact) => {
+    const res = await fetch('http://localhost:5000/contact', {
+      method : 'POST',
+      headers : { 'Content-type' : 'application/json'},
+      body : JSON.stringify(contact)
+    })
+    const data = await res.json()
+
+    // setcontact([data])
   }
   // Delete Event 
   const deleteTask = async (id) => {
@@ -67,7 +79,6 @@ function App() {
   // Toggle Event
   const toggleTask = async (id) => {
     const taskToToggle = await fetchTask(id)
-    console.log(taskToToggle)
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
 
     const res = await fetch(`http://localhost:5000/tasks/${id}`, {
@@ -104,10 +115,12 @@ function App() {
                 onToggle={toggleTask}
               />) :
               ('No Task to Preview')}
+            <ContactUs />
           </>
         )} />
-        <Route path ='/' exact component ={ContactUs}/>
-        <Route path ='/ContactUsForm' exact component ={ContactUsForm}/>
+        <Route path='/ContactUsForm'>
+          <ContactUsForm contact={contactUsForm} />
+        </Route>
         <Route path='/About' component={About} />
         <Footer className='footer' />
 
