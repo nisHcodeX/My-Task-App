@@ -1,3 +1,5 @@
+import ContactUsButton from './contactUsButton'
+
 import {Link} from 'react-router-dom'
  
 const ContactUs = () => {
@@ -5,9 +7,7 @@ const ContactUs = () => {
         <div className='ContactUs'>
 
                 <Link className="contactus-form-link" to='/ContactUsForm'>
-                    <button className='btn btn-block'>
-                        Contact Us
-                    </button>ContactUsFormContactUsForm
+                    <ContactUsButton/>
                 </Link>
             
         </div>

@@ -1,17 +1,13 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import About from './components/About'
-import Tasks from './components/Tasks'
-import AddTask from './components/AddTask'
-import ContactUs from './components/ContactUs'
-import ContactUsForm from './components/ContactUsForm'
-
+import Tasks from './components/Tasks/Tasks'
+import AddTask from './components/Tasks/AddTask'
+import ContactUs from './components/contactUs/ContactUs'
+import ContactUsForm from './components/contactUs/ContactUsForm'
 
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Button from './components/Button';
-
-
 
 function App() {
   // toggle Button
@@ -58,12 +54,11 @@ function App() {
   const contactUsForm = async (contact) => {
     const res = await fetch('http://localhost:5000/contact', {
       method : 'POST',
-      headers : { 'Content-type' : 'application/json'},
+      headers : {
+                   'Content-type' : 'application/json'
+                },
       body : JSON.stringify(contact)
     })
-    const data = await res.json()
-
-    // setcontact([data])
   }
   // Delete Event 
   const deleteTask = async (id) => {
@@ -84,8 +79,8 @@ function App() {
     const res = await fetch(`http://localhost:5000/tasks/${id}`, {
       method: 'PUT',
       headers: {
-        'Content-type': 'application/json'
-      },
+                  'Content-type': 'application/json'
+               },
       body: JSON.stringify(updTask)
     })
     const data = await res.json()
@@ -110,12 +105,12 @@ function App() {
             {showAddTask && <AddTask onAdd={addTask} />}
 
             {tasks.length > 0 ?
-              (<Tasks tasks={tasks}
-                onDelete={deleteTask}
-                onToggle={toggleTask}
-              />) :
-              ('No Task to Preview')}
-            <ContactUs />
+                  (<Tasks tasks={tasks}
+                      onDelete={deleteTask}
+                      onToggle={toggleTask}
+                      />) :
+                  ('No Task to Preview')}
+          <ContactUs />
           </>
         )} />
         <Route path='/ContactUsForm'>
@@ -123,7 +118,6 @@ function App() {
         </Route>
         <Route path='/About' component={About} />
         <Footer className='footer' />
-
       </div>
     </Router>
   )
